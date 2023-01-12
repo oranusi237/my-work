@@ -88,9 +88,11 @@
     border: none;
     border-radius: 5px;
   }
-  .dark{
-  
-  }
-  .light{
-    background-color: #eee;
-  }
+/* button styling  */
+
+.btn{
+  position: relative;
+  width: 20px;
+  height: 15px;
+  background: #555;
+}

@@ -39,7 +39,7 @@ fetchnation()
     activeClassName={'active'}
     /> */}
      <section className="grid">
-      <div className='me'>{nations.slice(0, 32).map(({name, population, subregion, region, capital, flags }) => {
+      <div className='me'>{nations.slice(0, 32).map(({name, population,  region, capital, flags }) => {
       return (
         <div>
           <Link to={`${name}`}>
@@ -49,7 +49,6 @@ fetchnation()
         <h4>Capital: <span>{capital}</span></h4>
         <h4>Region: <span>{region}</span></h4>
         <h4>Population: <span>{population}</span></h4>
-        <h4>Population: <span>{subregion}</span></h4>
         </div>
         </Link>
         </div>

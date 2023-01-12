@@ -1,30 +1,36 @@
 import React from 'react'
-import {useEffect, useState } from 'react';
-import {FaSun, FaMoon} from 'react-icons/fa'
+import { useState } from 'react';
 
 
 const Header = () => {
-  const [theme, setTheme] = useState(false);
-  const toggledarkmode = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    }  else {
-      setTheme('light');
-    }
+  const [mode, setmode] = useState(true);
+  const [togglebtn, setToggleBtn] = useState('<i class="fa-solid fa-sun"></i> Dark Mode')
+   const toggleDarkmode = () => {
+     if(mode) {
+       document.documentElement.classList.add('dark')
+       setToggleBtn('<i class="fa-solid fa-moon"></i> Dark Mode')
+       setmode(current => current = !current)
+     }
+     if(!mode) {
+        document.documentElement.classList.remove('dark')
+        setToggleBtn('<i class="fa-solid fa-sun"></i> Light Mode')
+        setmode(current => current = !current)
+     }
   };
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
   return (
     <div>
       <header className='header'>
         <div>
           <h2>Where in the world?</h2>
         </div>
-
         <div className='switch'>
-         <button onChange={toggledarkmode}></button>
-         <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>  
+         {/* <button  dangerouslySetInnerHTML = {{__html: togglebtn}} type={'button'} id={'btn'} className='btn' >
+          <div className='circle'>
+            <span className='dark'><i class="fa-solid fa-moon"></i></span>
+            <span className='light'><i class="fa-solid fa-sun"></i></span>
+          </div>
+          </button>  */}
+         
         </div>
       </header>
     </div>
